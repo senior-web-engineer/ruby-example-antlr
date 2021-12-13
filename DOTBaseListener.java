@@ -13,7 +13,7 @@ public class DOTBaseListener implements DOTListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing a digraph</p>
 	 */
 	@Override public void enterGraph(DOTParser.GraphContext ctx) {
 		System.out.println("Start recognizing a digraph");
@@ -21,7 +21,7 @@ public class DOTBaseListener implements DOTListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Finish recognizing a digraph</p>
 	 */
 	@Override public void exitGraph(DOTParser.GraphContext ctx) {
 		System.out.println("Finish recognizing a digraph");
@@ -29,7 +29,7 @@ public class DOTBaseListener implements DOTListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing a cluster</p>
 	 */
 	@Override public void enterStmt_list(DOTParser.Stmt_listContext ctx) {
 		System.out.println("Start recognizing a cluster");
@@ -37,7 +37,7 @@ public class DOTBaseListener implements DOTListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Finish recognizing a cluster</p>
 	 */
 	@Override public void exitStmt_list(DOTParser.Stmt_listContext ctx) {
 		System.out.println("Finish recognizing a cluster");
@@ -45,7 +45,7 @@ public class DOTBaseListener implements DOTListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing a property</p>
 	 */
 	@Override public void enterStmt(DOTParser.StmtContext ctx) {
 		String txt= ctx.getText();
@@ -58,7 +58,7 @@ public class DOTBaseListener implements DOTListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Finish recognizing a property</p>
 	 */
 	@Override public void exitStmt(DOTParser.StmtContext ctx) {
 		String txt= ctx.getText();
@@ -95,7 +95,7 @@ public class DOTBaseListener implements DOTListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Recognizing a property</p>
 	 */
 	@Override public void enterA_list(DOTParser.A_listContext ctx) {
 		int len = ctx.getText().split("\\,").length;
@@ -113,7 +113,7 @@ public class DOTBaseListener implements DOTListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing an edge statement</p>
 	 */
 	@Override public void enterEdge_stmt(DOTParser.Edge_stmtContext ctx) {
 		System.out.println("Start recognizing an edge statement");
@@ -121,7 +121,7 @@ public class DOTBaseListener implements DOTListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Finish recognizing an edge statement</p>
 	 */
 	@Override public void exitEdge_stmt(DOTParser.Edge_stmtContext ctx) {
 		System.out.println("Finish recognizing an edge statement");
@@ -189,7 +189,7 @@ public class DOTBaseListener implements DOTListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing a subgraph</p>
 	 */
 	@Override public void enterSubgraph(DOTParser.SubgraphContext ctx) {
 		System.out.println("Start recognizing a subgraph");
@@ -197,7 +197,7 @@ public class DOTBaseListener implements DOTListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Finish recognizing a subgraph</p>
 	 */
 	@Override public void exitSubgraph(DOTParser.SubgraphContext ctx) {
 		System.out.println("Finish recognizing a subgraph");

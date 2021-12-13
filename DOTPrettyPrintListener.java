@@ -13,18 +13,17 @@ public class DOTPrettyPrintListener extends DOTBaseListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing a digraph</p>
 	 */
 	@Override public void enterGraph(DOTParser.GraphContext ctx) {
 		System.out.println();
 		System.out.println("Pretty-printed code:");
 		System.out.println();
-		// System.out.print("digraph ");
 	 }
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Finish recognizing a digraph</p>
 	 */
 	@Override public void exitGraph(DOTParser.GraphContext ctx) {
 		System.out.println("}");
@@ -32,7 +31,7 @@ public class DOTPrettyPrintListener extends DOTBaseListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing a cluster</p>
 	 */
 	@Override public void enterStmt_list(DOTParser.Stmt_listContext ctx) {
 		System.out.println(" { ");
@@ -46,7 +45,7 @@ public class DOTPrettyPrintListener extends DOTBaseListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing a property</p>
 	 */
 	@Override public void enterStmt(DOTParser.StmtContext ctx) {
 		String txt= ctx.getText();
@@ -59,7 +58,7 @@ public class DOTPrettyPrintListener extends DOTBaseListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Finish recognizing a property</p>
 	 */
 	@Override public void exitStmt(DOTParser.StmtContext ctx) {
 		String txt= ctx.getText();
@@ -74,21 +73,17 @@ public class DOTPrettyPrintListener extends DOTBaseListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAttr_stmt(DOTParser.Attr_stmtContext ctx) {
-		System.out.println("enterAttr_stmt" + ctx.getText());
-	 }
+	@Override public void enterAttr_stmt(DOTParser.Attr_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAttr_stmt(DOTParser.Attr_stmtContext ctx) {
-		System.out.println("exitAttr_stmt" + ctx.getText());
-	 }
+	@Override public void exitAttr_stmt(DOTParser.Attr_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing attr_list: ( '[' a_list? ']' )+</p>
 	 */
 	@Override public void enterAttr_list(DOTParser.Attr_listContext ctx) {
 		System.out.print(" [");
@@ -96,7 +91,7 @@ public class DOTPrettyPrintListener extends DOTBaseListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Finish recognizing attr_list</p>
 	 */
 	@Override public void exitAttr_list(DOTParser.Attr_listContext ctx) {
 		System.out.print("]");
@@ -116,7 +111,7 @@ public class DOTPrettyPrintListener extends DOTBaseListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing an edge statement</p>
 	 */
 	@Override public void enterEdge_stmt(DOTParser.Edge_stmtContext ctx) {
 		if (memory) {
@@ -128,7 +123,7 @@ public class DOTPrettyPrintListener extends DOTBaseListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Finish recognizing an edge statement</p>
 	 */
 	@Override public void exitEdge_stmt(DOTParser.Edge_stmtContext ctx) {
 		System.out.println("; ");
@@ -148,7 +143,7 @@ public class DOTPrettyPrintListener extends DOTBaseListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing Edgeop: '->' | '--'</p>
 	 */
 	@Override public void enterEdgeop(DOTParser.EdgeopContext ctx) {
 		System.out.print(" " + ctx.getText() + " ");
@@ -198,16 +193,15 @@ public class DOTPrettyPrintListener extends DOTBaseListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing a subgraph</p>
 	 */
 	@Override public void enterSubgraph(DOTParser.SubgraphContext ctx) {
-		// System.out.print("  subgraph ");
 		memory = true;
 	 }
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Finish recognizing a subgraph</p>
 	 */
 	@Override public void exitSubgraph(DOTParser.SubgraphContext ctx) {
 		System.out.println("  }");
@@ -216,7 +210,7 @@ public class DOTPrettyPrintListener extends DOTBaseListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Start recognizing id: ID | STRING | HTML_STRING | NUMBER</p>
 	 */
 	@Override public void enterId(DOTParser.IdContext ctx) {
 		System.out.print(ctx.getText());
@@ -243,7 +237,7 @@ public class DOTPrettyPrintListener extends DOTBaseListener {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * <p>The default implementation does nothing.</p>
+	 * <p>Handle keywords & operators</p>
 	 */
 	@Override public void visitTerminal(TerminalNode node) {
 		String symbol = node.getText();
